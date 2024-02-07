@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Fribergs_CarRental_RP.Data;
 using Fribergs_CarRental_RP.Interfaces;
 
-namespace Fribergs_CarRental_RP.Pages.Customer
+namespace Fribergs_CarRental_RP.Pages.Customer.Order
 {
     public class DeleteModel : PageModel
     {
