@@ -1,0 +1,26 @@
+﻿@page
+@model Fribergs_CarRental_RP.Pages.Customer.Order.ConfirmationModel
+@{
+}
+@if (Model.Order != null)
+{
+    <div>
+        <h2>Ordebekräftelse</h2>
+        <h4>Personliga Uppgifter:</h4>
+        <p><strong>E-mail: </strong></p> @Model.Order.Customer.Email
+        <h4>Fordonsuppgifter:</h4>
+        <p><strong>Modell: </strong></p> @Model.Order.Car.Model
+        <p><strong>Märke: </strong></p> @Model.Order.Car.Brand
+        <p><strong>Dagspris: </strong></p> @Model.Order.Car.PricePerDay
+        <p><strong>Årtal: </strong></p> @Model.Order.Car.Year
+        <h4>Tidspann:</h4>
+        @Model.Order.StartDate - @Model.Order.EndDate
+    </div>
+    <br>
+    
+    <div>
+        <a asp-page="../Index">Gå tillbaka</a>
+    </div>
+}
+
+

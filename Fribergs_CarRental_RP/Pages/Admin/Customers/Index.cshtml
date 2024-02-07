@@ -1,0 +1,43 @@
+﻿@page
+@model Fribergs_CarRental_RP.Pages.Admin.Customer.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-align:center">Lista av kunder</h1>
+
+<p class="create-new">
+    <a asp-page="Create">Skapa en ny kund</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="customer-th">
+                @Html.DisplayNameFor(model => model.Customer[0].Email)
+            </th>
+            <th class="customer-th">
+                @Html.DisplayNameFor(model => model.Customer[0].Password)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Customer) {
+        <tr>
+                <td class ="customer-td">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+                <td class="customer-td">
+                @Html.DisplayFor(modelItem => item.Password)
+            
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

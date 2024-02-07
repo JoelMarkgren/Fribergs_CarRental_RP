@@ -1,0 +1,103 @@
+﻿@page
+@model Fribergs_CarRental_RP.Pages.Customer.Order.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Dina ordrar</h1>
+<div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    <h3>Gamla bokningar</h3>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.Order.Where(i => i.EndDate < DateTime.Now))
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                        -
+                        @Html.DisplayFor(modelItem => item.EndDate)
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                </tr>
+            }
+        
+        </tbody>
+
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>
+                        <h3>Kommande bokningar</h3>
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Order.Where(i => i.StartDate > DateTime.Now))
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                            -
+                            @Html.DisplayFor(modelItem => item.EndDate)
+                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                            |
+                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+                @* @foreach (var item in Model.Order.Where(i => i.StartDate > DateTime.Now))
+                {
+
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StartDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndDate)
+                            |
+                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                        </td>
+                        <td>
+                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>
+                    </tr>
+                } *@
+            </tbody>
+        </table>
+</div>
+
+<div>
+    <a asp-page="../Index">Gå tillbaka</a>
+</div>

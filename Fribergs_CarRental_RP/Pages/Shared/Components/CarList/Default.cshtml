@@ -1,0 +1,60 @@
+﻿@using Fribergs_CarRental_RP.Data
+@model List<Car>
+
+<table class="table">
+    <thead>
+        <tr>            
+            <th class="carlist-th">
+                @Html.DisplayNameFor(model => model[0].Brand)
+            </th>
+            <th class="carlist-th">
+                @Html.DisplayNameFor(model => model[0].Model)
+            </th>
+            <th class="carlist-th">
+                @Html.DisplayNameFor(model => model[0].Year)
+            </th>
+            <th class="carlist-th">
+                @Html.DisplayNameFor(model => model[0].PricePerDay)
+            </th>
+            <th class="carlist-th">
+                @Html.DisplayNameFor(model => model[0].Available)
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item.Available)
+            {
+                <tr>
+
+                    <td class="carlist-td">
+                        @Html.DisplayFor(modelItem => item.Brand)
+                    </td>
+                    <td class="carlist-td">
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td class="carlist-td">
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td class="carlist-td">
+                        @Html.DisplayFor(modelItem => item.PricePerDay)
+                    </td>
+                    <td class="carlist-td">
+                        @Html.DisplayFor(modelItem => item.Available)
+                    </td>
+                    <td>
+                        <img src="@item.CarImageUrl" alt="Car-image" style="max-width: 100px; max-height: 100px;" />
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+            
+        }
+    </tbody>
+</table>

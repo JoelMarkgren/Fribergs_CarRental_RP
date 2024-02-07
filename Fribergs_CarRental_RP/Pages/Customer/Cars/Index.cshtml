@@ -1,0 +1,69 @@
+﻿@page
+@model Fribergs_CarRental_RP.Pages.Customer.Cars.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Våra bilar</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].PricePerDay)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Available)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Car)
+        {
+            @if (item.Available)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Brand)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Year)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PricePerDay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Available)
+                    </td>
+                    <td>
+                        <img src="@item.CarImageUrl" alt="Car-image" style="max-width: 100px; max-height: 100px;" />
+                    </td>
+                    <td>
+
+                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-page="../Order/Create" asp-route-id="@item.Id">Boka bilen</a>
+                    </td>
+                </tr>
+            }
+            
+            
+        }
+    </tbody>
+</table>

@@ -1,0 +1,81 @@
+.navbar-item {
+    
+}
+
+.container {
+    background-color: #EEF5FF;
+    display: flex;
+    justify-content: space-between;
+    padding: 10;
+    text-decoration: none;
+}
+
+header {
+    justify-content: space-between;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui;
+    background-color: #B4D4FF;
+    background-blend-mode: color-burn;
+    background-size: cover;
+    background-image: url(https://www.ambong-ambong.com/wp-content/uploads/2023/03/istockphoto-1172427455-612x612-1.jpeg)
+}
+
+.friberg-logo {
+    width: 100px;
+    
+}
+
+.HomeRubrik {
+    text-align: center;
+    margin-top: 20px;
+}
+li {
+    display: inline;
+    margin-right: 10px;
+}
+a {
+    color: black;
+    font-size: large;
+    text-decoration: none;
+}
+.friberg-logo {
+    width: 50px;
+    margin: 10px;
+    height: auto;
+}
+.table {
+    width: 70%;
+    justify-content: space-between;
+    text-align: center;
+}
+.session-login-text {
+    font-size: smaller;
+}
+.carlist-th {    
+    text-align: center;
+}
+.carlist-td {
+    text-align: center;
+}
+.customer-td {
+    text-align: center;
+}
+.customer-th {
+    text-align: center;
+}
+thead {
+    text-decoration: underline;
+}
+.center-div {
+    text-align: center;
+}
+.create-new {
+    text-align: center;
+    font-weight: bold;
+}
+div {
+    text-align:center;
+}

@@ -1,0 +1,11 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 style="text-align: center;">Välkommen till Fribergs Car Rentals AB</h1>
+    <br>
+</div>
+@await Component.InvokeAsync("CarList", new {count = 3})

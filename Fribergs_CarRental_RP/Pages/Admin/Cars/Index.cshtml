@@ -1,0 +1,16 @@
+﻿@page
+@model Fribergs_CarRental_RP.Pages.Cars.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="text-align: center;">Lista av bilar</h1>
+
+<p class="create-new">
+    <a asp-page="Create">Skapa en ny bil</a>
+</p>
+@await Component.InvokeAsync("CarList")
+<div>
+    <a asp-page="../Index">Gå tillbaka</a>
+</div>
