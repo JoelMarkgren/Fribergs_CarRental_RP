@@ -49,9 +49,18 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.PricePerDay)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Available)
-                    </td>
+                    @if (item.Available)
+                    {
+                        <td class="col-sm-10">
+                            Redo för uthyrning
+                        </td>
+                    }
+                    @if (!item.Available)
+                    {
+                        <td class="col-sm-10">
+                            Bilen är uthyrd
+                        </td>
+                    }
                     <td>
                         <img src="@item.CarImageUrl" alt="Car-image" style="max-width: 100px; max-height: 100px;" />
                     </td>

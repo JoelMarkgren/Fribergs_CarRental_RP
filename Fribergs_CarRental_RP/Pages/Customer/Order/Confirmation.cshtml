@@ -6,11 +6,12 @@
 {
     <div>
         <h2>Ordebekräftelse</h2>
+        <img src="@Model.Order.Car.CarImageUrl" alt="Car-image" style="max-width: 100px; max-height: 100px;" />
         <h4>Personliga Uppgifter:</h4>
         <p><strong>E-mail: </strong></p> @Model.Order.Customer.Email
         <h4>Fordonsuppgifter:</h4>
-        <p><strong>Modell: </strong></p> @Model.Order.Car.Model
         <p><strong>Märke: </strong></p> @Model.Order.Car.Brand
+        <p><strong>Modell: </strong></p> @Model.Order.Car.Model       
         <p><strong>Dagspris: </strong></p> @Model.Order.Car.PricePerDay
         <p><strong>Årtal: </strong></p> @Model.Order.Car.Year
         <h4>Tidspann:</h4>

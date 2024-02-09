@@ -71,7 +71,10 @@ namespace Fribergs_CarRental_RP.Pages.Customer.Order
             }
             
 
-            
+            if (Order.StartDate > Order.EndDate)
+            {
+                return NotFound();
+            }
             orderRep.Add(Order);
 
             Order = orderRep.GetAll().OrderByDescending(o => o.Id).FirstOrDefault();

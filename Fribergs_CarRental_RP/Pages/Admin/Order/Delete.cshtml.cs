@@ -32,7 +32,8 @@ namespace Fribergs_CarRental_RP.Pages.Admin.Order
 
         public async Task<IActionResult> OnPostAsync(int id)
         {
-            orderRep.Delete(id);
+            Order = orderRep.GetById(id);
+            orderRep.Delete(Order);
             return RedirectToPage("./Index");
         }
     }

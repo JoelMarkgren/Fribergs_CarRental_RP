@@ -79,3 +79,17 @@ thead {
 div {
     text-align:center;
 }
+.mainContainer {
+    display:flex;
+    justify-content:center;
+}
+dd {
+    padding: 5px;
+    display:inline;
+    
+}
+dt {
+    font-weight: bold;
+    padding: 5px;
+    display: inline;
+}

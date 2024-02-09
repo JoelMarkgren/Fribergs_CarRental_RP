@@ -1,16 +1,81 @@
 ﻿@page
-@model Fribergs_CarRental_RP.Pages.Cars.IndexModel
+@model Fribergs_CarRental_RP.Pages.Admin.Cars.IndexModel
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1 style="text-align: center;">Lista av bilar</h1>
+<h1>Lista av bilar</h1>
 
-<p class="create-new">
-    <a asp-page="Create">Skapa en ny bil</a>
+<p>
+    <a style="font-weight: bold;"="Create">Skapa en ny bil</a>
 </p>
-@await Component.InvokeAsync("CarList")
-<div>
-    <a asp-page="../Index">Gå tillbaka</a>
-</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].PricePerDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].CarImageUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Car[0].Available)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Car)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PricePerDay)
+                </td>
+                <td>
+                    <img src="@item.CarImageUrl" alt="Car-image" style="max-width: 100px; max-height: 100px;" />
+                </td>
+                @if (item.Available)
+                {
+                    <td class="col-sm-10">
+                        Redo för uthyrning
+                    </td>
+                }
+                @if (!item.Available)
+                {
+                    <td class="col-sm-10">
+                        Bilen är uthyrd
+                    </td>
+                }
+
+                @* <td>
+            @Html.DisplayFor(modelItem => item.Available)
+            </td> *@
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a asp-page="./Index">Gå tillbaka</a>

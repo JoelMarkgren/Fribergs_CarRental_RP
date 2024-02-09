@@ -13,26 +13,30 @@ namespace Fribergs_CarRental_RP.Pages.Customer.Order
     public class DeleteModel : PageModel
     {
         private readonly IOrder orderRep;
+        private readonly ICar carRep;
 
-        public DeleteModel(IOrder orderRep)
+        public DeleteModel(IOrder orderRep, ICar carRep)
         {
             this.orderRep = orderRep;
+            this.carRep = carRep;
         }
 
         [BindProperty]
         public Data.Order Order { get; set; } = default!;
-
+        public Car Car { get; set; }
         public async Task<IActionResult> OnGetAsync(int id)
         {
-
             Order = orderRep.GetById(id);
-
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int id)
         {
-            orderRep.Delete(id);
+            Order = orderRep.GetById(id);
+            Car = carRep.GetById(Order.Car.Id);
+            Car.Available = true;
+            carRep.Update(Car);
+            orderRep.Delete(Order);
             return RedirectToPage("./Index");
         }
     }

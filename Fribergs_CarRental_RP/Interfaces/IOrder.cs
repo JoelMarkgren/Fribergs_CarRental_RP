@@ -8,7 +8,7 @@ namespace Fribergs_CarRental_RP.Interfaces
         IEnumerable<Order> GetAll();
         Order GetById(int id);
         Order Add(Order order);
-        bool Delete(int id);
+        bool Delete(Order order);
         Order Update(Order order);
 
 

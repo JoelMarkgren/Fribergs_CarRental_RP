@@ -6,24 +6,7 @@
 }
 
 <h1>Dina ordrar</h1>
-<div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="mainContainer">
     <table class="table">
         <thead>
             <tr>
@@ -36,21 +19,28 @@
         </thead>
         <tbody>
 
-            @foreach (var item in Model.Order.Where(i => i.EndDate < DateTime.Now))
+        @foreach(var order in Model.Order.Where(i=>i.StartDate < i.EndDate))
+            @foreach (var item in Model.Order.Where(i => i.EndDate <= DateTime.Now && i.StartDate< i.EndDate))
             {
 
                 <tr>
                     <td>
+                        <img src="@Model.Order.Where(i=>i.Car.CarImageUrl == item.Car.CarImageUrl).FirstOrDefault().Car.CarImageUrl" alt="Car-image" style="max-width: 100px; max-height: 100px;" />
+
+                        @Html.DisplayFor(modelItem => item.Car.Brand)
+                        -
+                        @Html.DisplayFor(modelItem => item.Car.Model)
+                        -
                         @Html.DisplayFor(modelItem => item.StartDate)
                         -
                         @Html.DisplayFor(modelItem => item.EndDate)
-                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                        |
+                        <a asp-page="./Confirmation" asp-route-id="@item.Id">Details</a>
                     </td>
                 </tr>
             }
         
         </tbody>
-
         <table class="table">
             <thead>
                 <tr>
@@ -62,38 +52,28 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Order.Where(i => i.StartDate > DateTime.Now))
-                {
+                
 
+                @foreach (var item in Model.Order.Where(i => i.StartDate >= DateTime.Now && i.StartDate < i.EndDate))
+                {
                     <tr>
                         <td>
+                            <img src="@Model.Order.Where(i=>i.Car.CarImageUrl == item.Car.CarImageUrl).FirstOrDefault().Car.CarImageUrl" alt="Car-image" style="max-width: 100px; max-height: 100px;" />
+                            
+                            @Html.DisplayFor(modelItem => item.Car.Brand)
+                            -
+                            @Html.DisplayFor(modelItem => item.Car.Model)
+                            -
                             @Html.DisplayFor(modelItem => item.StartDate)
                             -
                             @Html.DisplayFor(modelItem => item.EndDate)
-                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
+                            |
+                            <a asp-page="./Confirmation" asp-route-id="@item.Id">Details</a>
                             |
                             <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
                         </td>
                     </tr>
-                }
-                @* @foreach (var item in Model.Order.Where(i => i.StartDate > DateTime.Now))
-                {
-
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.StartDate)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.EndDate)
-                            |
-                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a>
-                        </td>
-                        <td>
-                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
-                    </tr>
-                } *@
+                }               
             </tbody>
         </table>
 </div>

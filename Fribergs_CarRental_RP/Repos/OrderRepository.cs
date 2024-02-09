@@ -14,6 +14,7 @@ namespace Fribergs_CarRental_RP.Repos
         }
         public Order Add(Order order)
         {
+            
             applicationDbContext.Orders.Add(order);
             applicationDbContext.Entry(order.Customer).State = EntityState.Unchanged;
             applicationDbContext.Entry(order.Car).State = EntityState.Unchanged;
@@ -21,9 +22,8 @@ namespace Fribergs_CarRental_RP.Repos
             return order;
         }
         
-        public bool Delete(int id)
-        {
-            var order = new Order() { Id = id };
+        public bool Delete(Order order)
+        {   
             applicationDbContext.Remove(order);
             return applicationDbContext.SaveChanges() > 0;
         }

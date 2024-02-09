@@ -9,44 +9,52 @@
 
 <div>
     <h4>Car</h4>
-    <hr />
+    
     <dl class="row">
+        
+        <dd class="col-sm-10" style="display:block;">
+            <img src="@Model.Car.CarImageUrl" alt="Car-image" style="max-width: 100px; max-height: 100px;" />
+        </dd>
+        <hr />
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Car.Brand)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Car.Brand)
         </dd>
+        <br>
+        <hr />
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Car.Model)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Car.Model)
         </dd>
+        <br>
+        <hr />
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Car.Year)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Car.Year)
         </dd>
+        <br>
+        <hr />
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Car.PricePerDay)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Car.PricePerDay)
         </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Car.CarImageUrl)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.CarImageUrl)
-        </dd>
+        <br>
+        <hr />
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Car.Available)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Car.Available)
+            Redo för uthyrning
         </dd>
+        <hr />
     </dl>
 </div>
 <div>

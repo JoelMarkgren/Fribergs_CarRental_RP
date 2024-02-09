@@ -10,13 +10,14 @@
     <header>
         <nav class="nav1">
             <div class="container">
-
                 <div>
-                    <a asp-page="./Index"><img class="friberg-logo" src="Images/friberg_logo.png" /></a>
+                    <img class="friberg-logo" src="/Images/friberg_logo.png" />
                 </div>
+                
                 @*  Om ingen är inloggad *@
                 @if (string.IsNullOrEmpty(Context.Session.GetString("CustomerLoggedIn")) && string.IsNullOrEmpty(Context.Session.GetString("AdminLoggedIn")))
                 {
+                    
                     <div>
                         <ul>
                             <li>
